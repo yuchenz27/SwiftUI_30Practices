@@ -5,6 +5,9 @@
 //  Created by Yuchen Zhang on 2023/9/1.
 //
 
+// This project is inspired by Sean Allen's YouTube tutorial:
+// https://www.youtube.com/watch?v=k5rupivxnMA&list=PL8seg1JPkqgHyWCBHwXGmfysQpEQTfC3z&index=2
+
 import SwiftUI
 
 @main
