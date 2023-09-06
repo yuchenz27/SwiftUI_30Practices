@@ -14,27 +14,39 @@ struct VideoListView: View {
     var body: some View {
         NavigationView {
             List(videos, id: \.id) { video in
-                HStack {
-                    Image(video.imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 70)
-                        .cornerRadius(4)
-                        .padding(.vertical, 4)
-                    
-                    VStack(alignment: .leading) {
-                        Text(video.title)
-                            .fontWeight(.semibold)
-                            .lineLimit(2)
-                            .minimumScaleFactor(0.5)
-                        
-                        Text(video.uploadDate)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
+                NavigationLink(destination: VideoDetailView(video: video)) {
+                    VideoCell(video: video)
                 }
             }
+            .listStyle(.grouped)
             .navigationTitle("Yuchen's Top 10")
+        }
+    }
+}
+
+struct VideoCell: View {
+    
+    var video: Video
+    
+    var body: some View {
+        HStack {
+            Image(video.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 70)
+                .cornerRadius(4)
+                .padding(.vertical, 4)
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text(video.title)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .lineLimit(2)
+                
+                Text(video.uploadDate)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
         }
     }
 }
